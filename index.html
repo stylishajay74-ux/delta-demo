@@ -3,9 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dynamic Programming in Data Structures</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Setting the default font to Inter */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117; /* Dark background for high contrast */
+        }
+    </style>
 </head>
-<body>
-    
+<body class="min-h-screen p-4 sm:p-8 text-white">
+
+    <div class="max-w-7xl mx-auto bg-gray-800 rounded-3xl shadow-2xl p-6 md:p-12 border-4 border-indigo-600">
+
+        <!-- Header and Title Section -->
+        <header class="text-center mb-10">
+            <h1 class="text-4xl sm:text-6xl font-extrabold text-indigo-400 leading-tight tracking-tight">
+                <span class="block">Dynamic Programming</span>
+                <span class="block text-3xl sm:text-5xl text-teal-400 mt-2">The Art of Optimization</span>
+            </h1>
+            <p class="mt-4 text-xl sm:text-2xl text-gray-300 font-light">Solving Complex Problems by Building from Simple Solutions</p>
+        </header>
+
+        <!-- Core Concepts Section -->
+        <section class="mb-10 p-6 bg-gray-900 rounded-2xl shadow-inner border border-gray-700">
+            <h2 class="text-3xl font-bold text-center text-yellow-400 mb-6 flex items-center justify-center">
+                <!-- SVG Icon for Structure -->
+                <svg class="w-8 h-8 mr-3 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10l2 2 2-2V7m0 10l2 2 2-2V7m0 10l2 2 2-2V7m0 0h4m-4 0v4m0 0v4m0 0h4m-4-4h4m-4-4h4"></path></svg>
+                The DP Foundation
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                
+                <!-- Optimal Substructure -->
+                <div class="bg-gray-700 p-5 rounded-xl transition duration-300 hover:shadow-lg hover:shadow-indigo-500/50">
+                    <h3 class="text-2xl font-semibold text-indigo-300 mb-2">1. Optimal Substructure</h3>
+                    <p class="text-gray-200">The optimal solution to the overall problem can be constructed from the optimal solutions of its subproblems.</p>
+                    <code class="block mt-2 text-sm text-yellow-200">F(n) = F(n-1) + F(n-2)</code>
+                </div>
+
+                <!-- Overlapping Subproblems -->
+                <div class="bg-gray-700 p-5 rounded-xl transition duration-300 hover:shadow-lg hover:shadow-indigo-500/50">
+                    <h3 class="text-2xl font-semibold text-indigo-300 mb-2">2. Overlapping Subproblems</h3>
+                    <p class="text-gray-200">The same subproblems are solved repeatedly. DP stores (memoizes) these results to avoid re-computation.</p>
+                    <code class="block mt-2 text-sm text-yellow-200">Memoization (Top-down) or Tabulation (Bottom-up)</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Applications Section -->
+        <section class="mb-10">
+            <h2 class="text-4xl font-extrabold text-center text-teal-400 mb-8">
+                Key Applications in Data Structures & Algorithms
+            </h2>
+
+            <div class="grid lg:grid-cols-3 gap-6">
+
+                <!-- Application 1: LCS -->
+                <div class="bg-gray-700 p-6 rounded-2xl shadow-xl border-t-4 border-teal-500 hover:scale-[1.02] transition duration-300">
+                    <h3 class="text-3xl font-bold text-teal-300 mb-3">1. Longest Common Subsequence (LCS)</h3>
+                    <p class="text-sm font-semibold text-gray-400 mb-3 uppercase">String Matching & Genomics</p>
+                    <p class="text-gray-200">Finds the longest sequence of characters that appears in the same order in two strings. A foundational task in file differencing (like the `diff` command) and bioinformatics.</p>
+                    <div class="mt-4 p-3 bg-gray-800 rounded-lg">
+                        <p class="text-sm text-indigo-400">Data Structure Used:</p>
+                        <p class="text-lg font-mono">2D Array / Matrix (for Tabulation)</p>
+                    </div>
+                </div>
+
+                <!-- Application 2: Knapsack -->
+                <div class="bg-gray-700 p-6 rounded-2xl shadow-xl border-t-4 border-yellow-500 hover:scale-[1.02] transition duration-300">
+                    <h3 class="text-3xl font-bold text-yellow-300 mb-3">2. 0/1 Knapsack Problem</h3>
+                    <p class="text-sm font-semibold text-gray-400 mb-3 uppercase">Resource Allocation & Optimization</p>
+                    <p class="text-gray-200">Given a set of items, each with a weight and a value, determine which items to include in a collection so that the total weight is less than or equal to a given limit and the total value is maximized.</p>
+                    <div class="mt-4 p-3 bg-gray-800 rounded-lg">
+                        <p class="text-sm text-indigo-400">Data Structure Used:</p>
+                        <p class="text-lg font-mono">2D Array / Memoization Table</p>
+                    </div>
+                </div>
+
+                <!-- Application 3: MCM -->
+                <div class="bg-gray-700 p-6 rounded-2xl shadow-xl border-t-4 border-indigo-500 hover:scale-[1.02] transition duration-300">
+                    <h3 class="text-3xl font-bold text-indigo-300 mb-3">3. Matrix Chain Multiplication</h3>
+                    <p class="text-sm font-semibold text-gray-400 mb-3 uppercase">Compiler Optimization & Linear Algebra</p>
+                    <p class="text-gray-200">Determines the most efficient way to multiply a sequence of matrices. The goal is not to perform the multiplication, but to find the optimal parenthesization (order) to minimize scalar multiplications.</p>
+                    <div class="mt-4 p-3 bg-gray-800 rounded-lg">
+                        <p class="text-sm text-indigo-400">Data Structure Used:</p>
+                        <p class="text-lg font-mono">2D Array / Cost Table</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Benefits/Conclusion Section -->
+        <section class="mt-12 text-center p-6 bg-indigo-900 rounded-2xl border border-indigo-600">
+            <h2 class="text-3xl font-bold text-white mb-4">Why Use Dynamic Programming?</h2>
+            <div class="flex flex-wrap justify-center gap-4 text-lg font-medium">
+                <span class="px-4 py-2 bg-indigo-600 rounded-full shadow-lg">🚀 Efficiency: $O(n^2)$ vs. Exponential</span>
+                <span class="px-4 py-2 bg-indigo-600 rounded-full shadow-lg">🧠 Memory Optimization (Memoization)</span>
+                <span class="px-4 py-2 bg-indigo-600 rounded-full shadow-lg">📈 Guaranteed Optimal Solution</span>
+            </div>
+            <p class="mt-4 text-xl text-gray-300">DP is the bridge between a correct, but slow, recursive solution and a fast, polynomial-time algorithm.</p>
+        </section>
+
+    </div>
 </body>
 </html>
